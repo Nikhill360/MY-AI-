@@ -13,12 +13,13 @@ const ContextProvider = (props) => {
     const [loading, setLoading] = useState(false);
     const [resultData, setResultData] = useState("");
 
-    const delayPara = (index,nextWord)=>{
-
+    const delayPara = (index, nextWord) => {
+        return new Promise((resolve) => {
+            setTimeout(() => {
+                resolve();
+            }, 20 * index);
+        });
     }
-
-
-
 
     const onSent = async (prompt) => {
 
