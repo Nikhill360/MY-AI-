@@ -3,6 +3,7 @@
     min-height: 100vh;
     padding-bottom: 15vh;
     position: relative;
+    background-color: black;
 
 }
 /* nav bar */
@@ -15,6 +16,7 @@
     color:#585858;
 }
 .main .nav img{
+    background-color: white;
     width: 40px;
     border-radius: 50%;
 }
@@ -67,7 +69,7 @@
     font-size: 18px;
 }
 .main .card:hover{
-    background-color: #dfe4ea;
+    background-color: rgb(39, 38, 38);
 }
 
 /* bottom */
@@ -112,10 +114,13 @@
     font: 10px;
     margin: 15px auto;
     text-align: center;
-    color: #585858;
+    color: #d0cecef3;
     font-weight: 300;
     
 }
+
+
+/* ai result---- */
 .result{
     padding: 0px 5%;
     max-height: 70vh;
@@ -125,20 +130,35 @@
     display: none;
 }
 .result-title{
+    color: whitesmoke;
     margin: 40px;
     display: flex;
     align-items: center;
     gap: 20px;
+    
+}
+.reslut-title p{
+    display: inline;
+    position: relative;
+    top: -15px;
+    color: whitesmoke;
+    margin: 1vh;
+    margin-left: 2vh;
 }
 
 .result img{
+    background-color: white;
     width: 40px;
     border-radius: 50%;
 }
 .result-data{
+    color: white;
     display: flex;
     align-items: start;
     gap: 20px;
+}
+.result-data img{
+    background-color: black;
 }
 
 /* loader */
@@ -168,8 +188,9 @@
 }
 
 .result-data p{
+    color: whitesmoke;
     font-size: 17px;
-    font-weight: 300;
+    font-weight: 200;
     line-height: 1.8;
 }
 

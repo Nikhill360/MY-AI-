@@ -12,7 +12,7 @@ const Main = () => {
     <div className="main">
         {/* nav-bar */}
       <div className="nav">
-        <p><span className='b'>N</span>oiczzz</p>                                    
+        <p><span className='b'>N</span>oiczzz-Ai</p>                                    
         <img src={assets.user_icon} alt="" />
       
       </div>
@@ -89,10 +89,10 @@ const Main = () => {
                 <div>
                       <img src={assets.gallery_icon} alt="" />
                       <img src={assets.mic_icon} alt="" />
-                      <img onClick={() => onSent()} src={assets.send_icon} alt="" />
+                      <img onClick={onSent} src={assets.send_icon} alt="" />
                 </div>  
               </div>
-              <p className='bottom-info'>Fight Club may desplay inaccurate info, including about people, so double check its response , Your privacy and Gemini Apps</p>
+              <p className='bottom-info'>Noiczzz-Ai may desplay inaccurate info, including about people, so double check its response , Your privacy and Gemini Apps</p>
             </div>
 
           </div>

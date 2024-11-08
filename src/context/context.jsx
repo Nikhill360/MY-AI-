@@ -14,28 +14,43 @@ const ContextProvider = (props) => {
     const [resultData, setResultData] = useState("");
 
     const delayPara = (index, nextWord) => {
-        return new Promise((resolve) => {
-            setTimeout(() => {
-                resolve();
-            }, 20 * index);
-        });
+        setTimeout(() => {
+            setResultData(prev => prev + nextWord);
+        }, 78 * index);
     }
 
-    const onSent = async (prompt) => {
-
+    const onSent = async () => {
+        if (!input.trim()) return; // Prevent empty submissions
+        
         setResultData("")
         setLoading(true)
         setShowResult(true)
         setRecentPrompt(input)
-        const response = await runChat(input)
-        setResultData(response)
-        setLoading(false)
-        setInput("")
-
+        setPrevPrompts(prev => [...prev, input])
         
+        try {
+            const response = await runChat(input)
+            let responseArray = response.split("**")
+            let newResponse = responseArray.map((text, index) => {
+                return index % 2 === 1 ? `<b>${text}</b>` : text
+            }).join('')
+            let newResponse2 = newResponse.split("*").join("</br>")
+            
+            // setResultData(newResponse2)
+            let newResponseArray = newResponse2.split(" ");
+            for(let i=0; i< newResponseArray.length; i++)
+            {
+                const nextWord = newResponseArray[i];
+                delayPara(i,nextWord+" ")
+            }
+        } catch (error) {
+            console.error('Error:', error)
+            setResultData("Sorry, there was an error processing your request.")
+        } finally {
+            setLoading(false)
+            setInput("")
+        }
     };
-
- 
 
     const contextValue = {
         prevPrompts,
