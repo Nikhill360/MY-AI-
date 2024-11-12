@@ -24,15 +24,16 @@
     align-items: center;
     gap: 10px;
     padding: 10px 15px;
-    background-color: #636363;
+    /* background-color: #636363; */
     border-radius: 50px;
     font-size: 15px;
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
     cursor: pointer;
 }
 
 .sidebar .new-chat:hover{
     background-color: #f5f5f5; /* White smoke color */
+    color: black;
 }
 
 .sidebar .recent{
