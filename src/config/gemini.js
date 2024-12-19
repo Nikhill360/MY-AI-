@@ -1,7 +1,9 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
+import dotenv from 'dotenv';
+dotenv.config();
 
 const MODEL_NAME = "gemini-1.0-pro";
-const API_KEY = "AIzaSyAZ9eSpN-tgkPNfzjldvQQyz0dsBE7rjQc";
+const API_KEY = process.env.GEMINI_API_KEY;
 
 const runChat = async (prompt) => {
   const genAI = new GoogleGenerativeAI(API_KEY);
@@ -14,7 +16,6 @@ const runChat = async (prompt) => {
   };
 
   try {
-    // Use generateContent instead of startChat for simple prompt-response
     const result = await model.generateContent(prompt);
     const response = await result.response;
     return response.text();
@@ -25,3 +26,7 @@ const runChat = async (prompt) => {
 };
 
 export default runChat;
+
+app.get('/api', (req, res) => {
+  res.send('API Endpoint!')
+});
