@@ -1,1 +1,1 @@
-import { runChat } from './config/gemini.js';
+import runChat from './config/gemini.js';

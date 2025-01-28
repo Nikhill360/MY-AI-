@@ -7,6 +7,11 @@ const Main = () => {
 
   const { onSent, recentPrompt, showResult, loading, resultData, setInput, input } = useContext(Context)
 
+  const handleKeyPress = (event) => {
+    if (event.key === 'Enter') {
+      onSent();
+    }
+  }
 
   return (
     <div className="main">
@@ -85,6 +90,7 @@ const Main = () => {
                     placeholder="input a prompt here" 
                     id="prompt-input"
                     name="prompt"
+                    onKeyPress={handleKeyPress}
                 />
                 <div>
                       <img src={assets.gallery_icon} alt="" />
